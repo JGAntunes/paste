@@ -1,0 +1,14 @@
+name: "Pull Request Categorizer"
+
+on:
+  - pull_request_target
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/labeler@v3
+        if: github.repository == 'twilio-labs/paste'
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          sync-labels: true

@@ -1,0 +1,15 @@
+name: "Opened Pull Request Labeler"
+
+on:
+  pull_request_target:
+    types: [opened]
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/labeler@v3
+        if: github.repository == 'twilio-labs/paste'
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          configuration-path: .github/opened-pr-labeler.yml

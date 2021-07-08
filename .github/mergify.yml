@@ -10,8 +10,12 @@ pull_request_rules:
     # when against main, labelled "ready-to-merge" and approved by 2 reviewers, PR is added to the merge queue
     conditions:
       - base=main
-      - label=ready-to-merge
+      # must be approved and have no out standing change requests
       - "#approved-reviews-by>=2"
+      - "#changes-requested-reviews-by=0"
+      # must be labelled ready-to-merge and not do-not-merge
+      - "label=Status: Ready to merge"
+      - "label!=Status: Do Not Merge"
     actions:
       queue:
         # name of queue to add to
