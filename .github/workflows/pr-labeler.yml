@@ -1,7 +1,6 @@
-name: "Pull Request Categorizer"
+name: Pull Request Categorizer
 
-on:
-  - pull_request
+on: pull_request
 
 jobs:
   PR categorizer:
