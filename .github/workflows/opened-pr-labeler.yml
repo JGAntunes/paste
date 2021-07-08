@@ -5,7 +5,7 @@ on:
     types: [opened]
 
 jobs:
-  PR triage:
+  pr-triage:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/labeler@v3
